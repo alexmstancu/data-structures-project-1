@@ -1,7 +1,7 @@
 ### Proiect structuri de date 2016 - Semestrul II
 Enuntul este [aici](http://cs.curs.pub.ro/2015/mod/resource/view.php?id=4855).
 
-Usage
+*Usage*
 
 Run 
 ```bash
