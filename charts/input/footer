@@ -1,0 +1,8 @@
+] // y-axis
+        	}
+		]
+	};
+var BarChart = new Chart(chrt).Bar(data);
+</script>
+
+</html>

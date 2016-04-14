@@ -1,0 +1,45 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <script src="../source/Chart.js-master/Chart.js">
+    </script>
+</head>
+
+<body>
+	<canvas id="myCanvas" width="1100" height="600"></canvas>
+	<div id="legend" style="position:fixed;right:10px;height:75%;border:1px solid black;width:150px;top:10px;padding:10px;max-height:75%;overflow-y:scroll;overflow-x:scroll;">
+	</div>
+	<script type="text/javascript">
+		var i;
+		var prod_name = [
+'1 - sports trousers', '2 - casual trousers', '3 - cap', '4 - t-shirt', '5 - sweatshirt', '6 - shorts', '7 - swimsuit', '8 - ski jacket', '9 - raincoat', '10 - hiking boots', '11 - ski trousers', '12 - socks', '13 - casual shoes men', '14 - hoodie', '15 - running shoes', '16 - slippers', '17 - armband', '18 - rucksack', '19 - duffel bag small', '20 - trolley', '21 - duffel bag large', '22 - casual backpack', '23 - weatherproof pack', '24 - skis', '25 - ski poles', '26 - snowboard', '27 - tennis racket', '28 - tennis ball', '29 - football', '30 - basketball', '31 - handball', '32 - swim glasses', '33 - anti-fog ski glasses', '34 - helmet', '35 - tent', '36 - skateboard', '37 - roller skates', '38 - ice skates', '39 - action camera', '40 - swimming nose clips', '41 - thigh protector', '42 - bicycle light', '43 - skate wheel set', '44 - drone', '45 - photo tripod', '46 - umbrella', '47 - snorkeling kit', '48 - backpack rain cover', '49 - baby carrier', '50 - sunglasses', '51 - fitness tracker', '52 - workout foam', '53 - memory card', '54 - solar power bank', '55 - tredmill', '56 - dumbbell kit', '57 - bicycle', ];
+		for(i=0;i<prod_name.length;i++) {
+		document.getElementById("legend").innerHTML = document.getElementById("legend").innerHTML + prod_name[i]+ " <br>";
+		}
+	</script>
+</body>
+
+<script>
+	var chrt = document.getElementById('myCanvas').getContext('2d');
+	var data = {
+		labels: [
+'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', ], // x-axis
+    	datasets: [
+        	{
+            	label: "My First dataset",
+            	fillColor: "rgba(0,255,128,0.4)",
+            	strokeColor: "rgba(0,128,255,0.8)",
+            	pointColor: "rgba(255,0,0,1)",
+            	pointStrokeColor: "#fff",
+            	pointHighlightFill: "#fff",
+            	pointHighlightStroke: "rgba(220,220,220,1)",
+            	data: [
+20900, 29640, 9080, 18720, 29380, 18000, 31800, 92400, 88000, 89680, 47800, 4660, 36600, 33750, 40290, 20610, 4600, 41200, 56320, 101910, 91260, 42480, 75820, 152640, 50830, 157080, 93890, 4680, 20520, 17280, 19280, 13380, 17280, 26880, 108450, 82600, 142040, 119600, 205590, 6720, 10880, 9320, 25740, 218250, 36720, 14340, 21960, 9800, 73710, 97990, 0, 0, 0, 0, 0, 0, 0, ] // y-axis
+        	}
+		]
+	};
+var BarChart = new Chart(chrt).Bar(data);
+</script>
+
+</html>

@@ -1,0 +1,11 @@
+];
+		for(i=0;i<prod_name.length;i++) {
+		document.getElementById("legend").innerHTML = document.getElementById("legend").innerHTML + prod_name[i]+ " <br>";
+		}
+	</script>
+</body>
+
+<script>
+	var chrt = document.getElementById('myCanvas').getContext('2d');
+	var data = {
+		labels: [

@@ -1,0 +1,57 @@
+#ifndef BON_H
+#define BON_H
+
+#include <iostream>
+#include <cstdlib>
+
+#include "vector.h"
+#include "hashtable.h"
+#include "Produs.h"
+
+class Bon {
+    private:
+        std::string id_bon;
+        hashtable<std::string, int> H; /* maps bon id to number of occurrences. */
+    public:
+        std::string& get_id() {
+            return id_bon;
+        }
+
+        void set_id(const std::string& cod) {
+            id_bon = cod;
+        }
+
+        vector<Produs>& get_produse() {
+            return produse;
+        }
+
+        int cost() const {
+            int sum = 0;
+            for (int i = 0; i < produse.size(); i++)
+                sum += produse[i].get_price();
+
+            return sum;
+        }
+	//pentru fiecare pereche de produse de pe bon se incrementeaza valoarea din hashtable-ul ce contorizeaza de cate ori apare perechea respectiva in tranzactii:
+
+        void sales_by_product_pair(hashtable<pair<int,int>, int >& h) const {
+	
+            for (int i = 0; i < produse.size(); i++)
+
+		for (int j = i + 1; j < produse.size(); j++)
+		    if (produse[i].get_id() != produse[j].get_id()) {  
+			h[make_pair(produse[i].get_id(),produse[j].get_id())]++;
+            }
+        }
+	//pentru fiecare produs se incrementeaza valoarea din hashtable-ul ce contorizeaza cat de multe produse dintr-o categorie au fost vandute:
+      
+
+        void sales_by_category (hashtable< int, int >& h) const {
+
+            for (int i = 0; i < produse.size(); i++) {
+                h[produse[i].get_categ()]++;
+            }
+        }
+};
+
+#endif /* BON_H */
